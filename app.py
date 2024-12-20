@@ -9,7 +9,7 @@ app = Flask(__name__)
 # Cập nhật dữ liệu
 PAGE_ACCESS_TOKEN = "EAAIUQMreC0EBOZBOaOQIASVIAxHWhKZBe9APtMnDOV58wUUdzjZCWHLTUGwm1ZAwlqbdEMOvKEZCFiOFbQazrACZAQAxEmDbf9ZBx0dYjN5qqS3NuA7qmhRHd6FnbCg5bZCnbi9UukV3DZC1fjS0J9Sxo7MmUCSbvLbZC5Cskf4El6XrOdJUWvZAKDZCaPUPl6G2NFHpQnpB3Aji4mY9A74ZD"
 VERIFY_TOKEN = "mkg20144"
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "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"
 
 # Đặt API Key cho OpenAI
 openai.api_key = OPENAI_API_KEY
@@ -57,4 +57,5 @@ def send_message(recipient_id, text):
         print(f"Error sending message: {response.text}")
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
